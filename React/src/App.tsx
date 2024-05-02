@@ -1,16 +1,33 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import HtmlEditor, { HtmlEditorTypes, Item, Toolbar } from 'devextreme-react/html-editor';
+import { markup } from './Markup';
+
+function onInitialized(e: HtmlEditorTypes.InitializedEvent): void {
+  const Uploader = e.component?.get('modules/uploader');
+  class DisabledUploader extends Uploader {
+    constructor(quill: any, options: any) {
+      // eslint-disable-next-line spellcheck/spell-checker
+      super(quill, { ...options, mimetypes: [] });
+      // empty array to prevent any image type from being pasted
+    }
+  }
+  e.component?.register({ 'modules/uploader': DisabledUploader });
+}
 
 function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
   return (
     <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
+      <p>Try dropping or pasting an image to the editor.</p>
+      <HtmlEditor onInitialized={onInitialized} height={500} value={markup}>
+        <Toolbar>
+          <Item name="undo" />
+          <Item name="redo" />
+          <Item name="separator" />
+          <Item name="clear" />
+        </Toolbar>
+      </HtmlEditor>
     </div>
   );
 }
