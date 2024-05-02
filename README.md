@@ -1,0 +1,1 @@
+# devextreme-html-editor-avoid-pasting-images
