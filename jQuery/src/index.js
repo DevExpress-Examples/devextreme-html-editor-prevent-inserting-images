@@ -19,7 +19,7 @@ $(() => {
     },
     toolbar: {
       items: [
-        'undo', 'redo', 'separator',
+        'undo', 'redo',
         'separator',
         'clear',
       ],
