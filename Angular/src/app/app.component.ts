@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import { DxHtmlEditorTypes } from 'devextreme-angular/ui/html-editor';
+import { Service } from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [Service],
 })
 export class AppComponent {
-  title = 'Angular';
+  valueContent: string;
 
-  counter = 0;
+  constructor(service: Service) {
+    this.valueContent = service.getMarkup();
+  }
 
-  buttonText = 'Click count: 0';
-
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  onInitialized(e: DxHtmlEditorTypes.InitializedEvent): void {
+    const Uploader = e.component?.get('modules/uploader');
+    class DisabledUploader extends Uploader {
+      constructor(quill: any, options: any) {
+        // eslint-disable-next-line spellcheck/spell-checker
+        super(quill, { ...options, mimetypes: [] });
+        // empty array to prevent any image type from being pasted
+      }
+    }
+    e.component?.register({ 'modules/uploader': DisabledUploader });
   }
 }

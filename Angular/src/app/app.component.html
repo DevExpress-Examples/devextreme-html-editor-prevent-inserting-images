@@ -1,3 +1,9 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
-</div>
+<p>Try dropping or pasting an image to the editor.</p>
+<dx-html-editor (onInitialized)="onInitialized($event)" height="500px" [value]="valueContent">
+  <dxo-toolbar>
+    <dxi-item name="undo"></dxi-item>
+    <dxi-item name="redo"></dxi-item>
+    <dxi-item name="separator"></dxi-item>
+    <dxi-item name="clear"></dxi-item>
+  </dxo-toolbar>
+</dx-html-editor>
