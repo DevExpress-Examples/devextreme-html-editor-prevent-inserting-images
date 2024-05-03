@@ -1,29 +1,38 @@
 @using ASP_NET_Core.Models
 
-<h2>Home</h2>
+<p>Try dropping or pasting an image to the editor.</p>
 
-@(Html.DevExtreme().DataGrid<SampleOrder>()
-    .ShowBorders(true)
-    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
-    .Columns(columns => {
-        columns.AddFor(m => m.OrderID);
-        columns.AddFor(m => m.OrderDate);
-        columns.AddFor(m => m.CustomerName);
-        columns.AddFor(m => m.ShipCountry);
-        columns.AddFor(m => m.ShipCity);
-    })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Grouping(g => g.AutoExpandAll(false))
-    .RemoteOperations(true)
-    .Summary(s => s
-        .TotalItems(totalItems => {
-            totalItems.AddFor(m => m.ShipCity).SummaryType(SummaryType.Count);
-        })
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
+@(Html.DevExtreme().HtmlEditor()
+    .ID("html_editor")
+    .Height(400)
+    .OnInitialized("onInitialized")
+    .Value(new JS("markup"))
+    .Toolbar(toolbar => toolbar.Items(
+        items =>
+        {
+            items.Add().Name(HtmlEditorToolbarItem.Undo);
+
+            items.Add().Name(HtmlEditorToolbarItem.Redo);
+
+            items.Add().Name(HtmlEditorToolbarItem.Separator);
+
+            items.Add().Name(HtmlEditorToolbarItem.Clear);
+           
         })
     )
 )
+<script>
+    let markup = '<h2>Formatted Text Editor (HTML Editor)</h2><p><br></p><p>DevExtreme JavaScript HTML Editor is a client-side WYSIWYG text editor that allows its users to format textual and visual content and store it as HTML or Markdown.</p>';
+
+    function onInitialized(e) {
+        const Uploader = e.component.get('modules/uploader');
+        class DisabledUploader extends Uploader {
+            constructor(quill, options) {
+                // eslint-disable-next-line spellcheck/spell-checker
+                super(quill, { ...options, mimetypes: [] });
+                // empty array to prevent any image type from being pasted
+            }
+        }
+        e.component.register({ 'modules/uploader': DisabledUploader });
+    }
+</script>
