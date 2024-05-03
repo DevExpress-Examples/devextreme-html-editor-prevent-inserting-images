@@ -22,7 +22,7 @@ import {
   DxHtmlEditor,
   DxToolbar,
   DxItem,
-  DxHtmlEditorTypes
+  type DxHtmlEditorTypes
 } from 'devextreme-vue/html-editor';
 
 function onInitialized(e: DxHtmlEditorTypes.InitializedEvent): void {
