@@ -20,7 +20,7 @@ function App(): JSX.Element {
   return (
     <div className="main">
       <p>Try dropping or pasting an image to the editor.</p>
-      <HtmlEditor onInitialized={onInitialized} height={500} value={markup}>
+      <HtmlEditor onInitialized={onInitialized} height={500} defaultValue={markup}>
         <Toolbar>
           <Item name="undo" />
           <Item name="redo" />
