@@ -3,17 +3,24 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1231105)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# DevExtreme Examples Template
+# HtmlEditor for DevExtreme - How to prevent images from being dropped or pasted
 
-This is the repository template for creating new examples. 
+If you want to prevent images from being dropped or pasted into the HtmlEditor component, configure allowed MIME image types.
 
-Use **_Product_ for DevExtreme - _Task_** template for a title. 
+```
+onInitialized(e) {
+    const Uploader = e.component.get('modules/uploader');
+    class DisabledUploader extends Uploader {
+        constructor(quill, options) {
+            // Define empty array to prevent any image type from being pasted or dropped
+            super(quill, { ...options, mimetypes: [] });
+        }
+    }
+    e.component.register({ 'modules/uploader': DisabledUploader });
+    },
+```
 
-Describe the solved task in this section.
-
-Put a screenshot/gif that illustrates the result here.
-
-Then, add implementation details (steps, code snippets, and other technical information in a free form), or add a link to an existing document with implementation details. 
+Note: in this case, you cannot use drag-and-drop, the paste command, and the `base64` image uploader to upload local files. You can add images only in the `server` [upload mode](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/imageUpload/#fileUploadMode).
 
 ## Files to Review
 
@@ -31,12 +38,8 @@ Then, add implementation details (steps, code snippets, and other technical info
 
 ## Documentation
 
-- link
-- link
-- ...
+- [HtmlEditor - imageUpload](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/imageUpload/)
 
 ## More Examples
 
-- link
-- link
-- ...
+- [HtmlEditor Overview Demo](https://js.devexpress.com/Demos/WidgetsGallery/Demo/HtmlEditor/Overview/)
