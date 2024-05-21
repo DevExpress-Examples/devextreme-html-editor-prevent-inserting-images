@@ -2,9 +2,9 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1231105)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# HtmlEditor for DevExtreme - How to prevent images from being dropped or pasted
+# HtmlEditor for DevExtreme - How to prevent end-user image insertion (drag-and-drop and paste)
 
-If you want to prevent images from being dropped or pasted into the HtmlEditor component, configure allowed MIME image types.
+You can prevent end-user image insertion into the HtmlEditor component (disable drop and paste operations). To accomplish this, configure allowed MIME image types.
 
 ```
 onInitialized(e) {
