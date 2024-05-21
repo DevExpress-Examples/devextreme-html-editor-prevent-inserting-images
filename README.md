@@ -4,7 +4,7 @@
 <!-- default badges end -->
 # HtmlEditor for DevExtreme - How to prevent end-user image insertion (drag-and-drop and paste)
 
-You can prevent end-user image insertion into the HtmlEditor component (disable drop and paste operations). To accomplish this, configure allowed MIME image types.
+You can configure the allowed MIME image types to prevent users from inserting images into the HtmlEditor component (disable drop and paste operations).
 
 ```
 onInitialized(e) {
