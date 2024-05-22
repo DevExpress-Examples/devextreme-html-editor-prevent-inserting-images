@@ -2,9 +2,9 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1231105)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# HtmlEditor for DevExtreme - How to prevent end-user image insertion (drag-and-drop and paste)
+# DevExtreme HTML Editor - How to prevent end-user image insertion (drag-drop and paste) 
 
-You can configure the allowed MIME image types to prevent users from inserting images into the HtmlEditor component (disable drop and paste operations).
+You can configure allowed MIME image types and prevent users from inserting images into the DevExtreme HTML Editor component (disable drop and paste operations). 
 
 ```
 onInitialized(e) {
@@ -19,7 +19,7 @@ onInitialized(e) {
     },
 ```
 
-Note: in this case, you cannot use drag-and-drop, the paste command, and the `base64` image uploader to upload local files. You can add images only in the `server` [upload mode](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/imageUpload/#fileUploadMode).
+Note: In this instance, you cannot use drag-and-drop, the paste command, and the `base64` image uploader to upload local files. You can only add images using `server` [upload mode](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/imageUpload/#fileUploadMode).
 
 ## Files to Review
 
