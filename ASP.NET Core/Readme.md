@@ -1,41 +1,33 @@
-# ASP.NET Core
+# ASP.NET Core DevExtreme Example
 
-## Installation
+For more information about this example check the [Readme](../README.md).
 
-Download the example and use Visual Studio 2019 to open the project. 
+## Build and Run
 
-## Client-side resources and bundling
+Prerequisites: .NET 8 SDK, Node.js (for npm/gulp resource bundling).
 
-This project uses [NPM](http://npmjs.com/) and [Gulp.js](https://gulpjs.com/) to install client-side libraries. The project restores NPM packages before the first build. Then, Gulp bundles required scripts and CSS files into the resulting package during the first and every next build. 
+Restore and build:
+```sh
+dotnet restore
+dotnet build
+```
 
-The resulted bundles will be located in the `wwwroot` folder:
-* `css/vendor.css` - a file with all CSS styles.
-* `css/icons` and `css/fonts` - folders that contain fonts and icons for DevExtreme themes.
-* `js/vendor.js` - a file that contains all scripts.
+Run (HTTPS on 5001, HTTP on 5000 by default):
+```sh
+dotnet run
+```
 
-The default bundle includes jQuery, Bootstrap, and DevExtreme.
+You can also use Visual Studio: F5 / Ctrl+F5.
 
-### Add more 3rd-party libraries for additional features/components 
+## Further help
 
-The main logic is located in the the `gulpfile.js` file at the root application level. The file contains two tasks:
+DevExtreme ASP.NET Core Razor syntax: https://docs.devexpress.com/AspNetCore/400574/devextreme-based-controls/concepts/razor-syntax
+Client-side API basics:
+* Get/Set properties: https://js.devexpress.com/DevExtreme/Guide/jQuery_Components/Component_Configuration_Syntax/#Get_and_Set_Properties
+* Call methods: https://js.devexpress.com/DevExtreme/Guide/jQuery_Components/Component_Configuration_Syntax/#Call_Methods
+* Get instance: https://js.devexpress.com/DevExtreme/Guide/jQuery_Components/Component_Configuration_Syntax/#Get_a_UI_Component_Instance
 
-* the `add-resouces` task  
-
-    * copies JavaScript files located in the `scripts` array and adds them to `vendor.js`. The script bundle is moved to `wwwroot\scripts`.
-    * copies CSS styles located in the `styles` array and merges them into the `styles.css` bundle. Then, this bundle is moved to `wwwroot\styles`
-    * copies DevExtreme `fonts` and `icons` folders from NPM  to `wwwroot\styles`
-
-*  the `clean` task removes all previously created files (`vendor.js` and `vendor.css`) and folders (`icons` and `fonts`)
-
-If you need to include more features, you can uncomment one of the following sections:
-
-* Gantt - scripts and styles for [dxGantt](https://js.devexpress.com/DevExtreme/Guide/UI_Components/Gantt/Getting_Started_with_Gantt/).
-* Diagram - scripts and styles for [dxDiagram](https://js.devexpress.com/DevExtreme/Guide/UI_Components/Diagram/Getting_Started_with_Diagram/).
-* Export  - scripts and styles for the exporting feature: [Export Data to Excel](https://js.devexpress.com/DevExtreme/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/#Export_Data). 
-* HtmlEditor - scripts and styles for [dxHtmlEditor](https://js.devexpress.com/DevExtreme/Guide/UI_Components/HtmlEditor/Overview/).
-* Full Bundle - scripts and styles for all above mentioned features/components.  
-
-## Code
+To get more help with DevExtreme, submit a ticket through the [Support Center](https://supportcenter.devexpress.com/ticket/create).## Code
 
 Take a look at the following files of this example to see the required code: 
 
