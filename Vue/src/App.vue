@@ -4,6 +4,7 @@ import { RouterView } from 'vue-router';
 
 <template>
   <div class="main">
+    <p>Try dropping or pasting an image to the editor.</p>
     <RouterView/>
   </div>
 </template>
