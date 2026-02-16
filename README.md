@@ -45,7 +45,7 @@ Note: In this instance, you cannot use drag-and-drop, the paste command, and the
 
 - [HtmlEditor Overview Demo](https://js.devexpress.com/Demos/WidgetsGallery/Demo/HtmlEditor/Overview/)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-html-editor-prevent-inserting-images&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-html-editor-prevent-inserting-images&~~~was_helpful=no)
 
