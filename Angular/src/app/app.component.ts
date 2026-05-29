@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { DxHtmlEditorTypes } from 'devextreme-angular/ui/html-editor';
+import { DxHtmlEditorModule, DxHtmlEditorTypes } from 'devextreme-angular/ui/html-editor';
 import { Service } from './app.service';
 
 @Component({
+  imports: [DxHtmlEditorModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
