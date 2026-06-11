@@ -20,7 +20,6 @@ export class AppComponent {
     const Uploader = e.component?.get('modules/uploader');
     class DisabledUploader extends Uploader {
       constructor(quill: unknown, options: Record<string, unknown>) {
-        // eslint-disable-next-line spellcheck/spell-checker
         super(quill, { ...options, mimetypes: [] });
         // empty array to prevent any image type from being pasted
       }
